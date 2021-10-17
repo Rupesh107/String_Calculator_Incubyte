@@ -5,14 +5,20 @@ import java.util.regex.Pattern;
 
 class StringCalculator {
 
-	public int add(String input) {
+	public int add(String input) throws Exception {
 
 		String[] numbers = input.split(",|\n");
 
 		if (input.isEmpty()) {
 			return 0;
 		} else if (input.length() == 1) {
-			return addNum(numbers);
+
+			if (Integer.parseInt(input) < 0) {
+				throw new RuntimeException("negatives not allowed " + Integer.parseInt(input));
+
+			} else {
+				return Integer.parseInt(input);
+			}
 
 		} else if (input.startsWith("//")) {
 
@@ -25,7 +31,7 @@ class StringCalculator {
 		}
 	}
 
-	private int addNum(String[] integers) {
+	private int addNum(String[] integers) throws Exception {
 		int sum = 0;
 
 		for (int i = 0; i < integers.length; i++) {
