@@ -37,6 +37,6 @@ class StringCalculatorShould {
 
 	@Test
 	void string_with_support_for_different_delimeters_seperated_numbers_will_return_number_as_sum() {
-		assertEquals(3, stringCalculator.add("//;\\n1;2"));
+		assertEquals(3, stringCalculator.add("//;\n1;2"));
 	}
 }
