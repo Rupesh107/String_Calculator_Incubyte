@@ -4,17 +4,25 @@ class StringCalculator {
 
 	public int add(String input) {
 
-		if (isEmpty(input)) {
+		String[] numbers = input.split(",");
+
+		if (input.isEmpty()) {
 			return 0;
+		} else if (input.length() == 1) {
+			return Integer.parseInt(input);
+		} else {
+
+			return addNum(numbers);
 		}
-		return stringToInt(input);
 	}
 
-	private boolean isEmpty(String input) {
-		return input.isEmpty();
-	}
+	private int addNum(String[] numbers) {
+		int sum = 0;
 
-	private int stringToInt(String input) {
-		return Integer.parseInt(input);
+		for (int i = 0; i < numbers.length; i++) {
+			sum = sum + Integer.parseInt(numbers[i]);
+		}
+		return sum;
+
 	}
 }
