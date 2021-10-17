@@ -25,4 +25,9 @@ class StringCalculatorShould {
 		assertEquals(3, stringCalculator.add("1,2"));
 	}
 
+	@Test
+	void string_with_unknown_amount_of_numbers_will_return_number_as_their_sum() {
+		assertEquals(36, stringCalculator.add("1,2,3,4,5,6,7,8"));
+	}
+
 }
