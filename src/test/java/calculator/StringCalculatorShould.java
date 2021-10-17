@@ -30,4 +30,9 @@ class StringCalculatorShould {
 		assertEquals(36, stringCalculator.add("1,2,3,4,5,6,7,8"));
 	}
 
+	@Test
+	void string_with_new_line_between_numbers_will_return_a_number_as_their_sum() {
+		assertEquals(6, stringCalculator.add("1\n2,3"));
+	}
+
 }
