@@ -39,4 +39,9 @@ class StringCalculatorShould {
 	void string_with_support_for_different_delimeters_seperated_numbers_will_return_number_as_sum() {
 		assertEquals(3, stringCalculator.add("//;\n1;2"));
 	}
+
+	@Test
+	void string_with_calling_add_with_negative_numbers_will_throw_exception() {
+		assertEquals(9, stringCalculator.add("-6,3"));
+	}
 }
