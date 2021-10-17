@@ -20,4 +20,9 @@ class StringCalculatorShould {
 		assertEquals(1, stringCalculator.add("1"));
 	}
 
+	@Test
+	void string_with_two_numbers_will_return_a_number_as_their_sum() {
+		assertEquals(3, stringCalculator.add("1,2"));
+	}
+
 }
