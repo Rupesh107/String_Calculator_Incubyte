@@ -2,8 +2,8 @@ package calculator;
 
 class StringCalculator {
 
-    public int add(String input) {
-        return 0;
+    public int add(String string) {
+        return -1;
     }
 
 }
