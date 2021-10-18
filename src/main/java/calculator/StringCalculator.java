@@ -5,7 +5,14 @@ import java.util.regex.Pattern;
 
 class StringCalculator {
 
+	private static int count;
+
+	static {
+		count = 0;
+	}
+
 	public int add(String input) throws Exception {
+		++count;
 
 		String[] numbers = input.split(",|\n");
 
@@ -52,5 +59,9 @@ class StringCalculator {
 
 		}
 		throw new RuntimeException("Wrong Custom Delimeter Format");
+	}
+
+	public static int GetCalledCount() {
+		return count;
 	}
 }
