@@ -41,19 +41,24 @@ class StringCalculatorShould {
 	}
 
 	@Test
-	void string_with_calling_add_negative_numbers_will_throw_exception() throws Exception{
+	void string_with_calling_add_negative_numbers_will_throw_exception() throws Exception {
 
 		stringCalculator.add("-2");
-	}		
-	
+	}
+
 	@Test
-	void string_with_numbers_bigger_than_1000_should_be_ignored() throws Exception{
+	void string_with_numbers_bigger_than_1000_should_be_ignored() throws Exception {
 
 		assertEquals(7, stringCalculator.add("1003,7"));
 	}
-	
+
 	@Test
-	void string_with_any_length_delimiter_numbers_should_return_number_as_sum() throws Exception {
-		assertEquals(6, stringCalculator.add("//[***]\n1***2***3"));
+	void string_with_any_numbers_of_delimiter_numbers_should_return_number_as_sum() throws Exception {
+		assertEquals(6, stringCalculator.add("//[*][%]\n1*2%3"));
+	}
+
+	@Test
+	void string_with_any_multiple_delimiter_numbers_should_return_number_as_sum() throws Exception {
+		assertEquals(6, stringCalculator.add("//[**][%%]\n1**2%%3"));
 	}
 }
