@@ -47,6 +47,12 @@ class StringCalculatorShould {
 	}
 
 	@Test
+	void string_with_multiple_negative_numbers_should_throw_exception() throws Exception {
+
+		stringCalculator.add("-7,9,-3");
+	}
+
+	@Test
 	void string_with_numbers_bigger_than_1000_should_be_ignored() throws Exception {
 
 		assertEquals(7, stringCalculator.add("1003,7"));
