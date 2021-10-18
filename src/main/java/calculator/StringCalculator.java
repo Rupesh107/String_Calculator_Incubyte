@@ -5,14 +5,7 @@ import java.util.regex.Pattern;
 
 class StringCalculator {
 
-	private static int count;
-
-	static {
-		count = 0;
-	}
-
 	public int add(String input) throws Exception {
-		++count;
 
 		String[] numbers = input.split(",|\n");
 
@@ -26,6 +19,9 @@ class StringCalculator {
 			} else {
 				return Integer.parseInt(input);
 			}
+		} else if (input.startsWith("//[")) {
+
+			return anyLengthDelimiter(input);
 
 		} else if (input.startsWith("//")) {
 
@@ -38,33 +34,49 @@ class StringCalculator {
 		}
 	}
 
+	private String[] getDelimiterSeperatedNumbers(String input) {
+
+		return null;
+	}
+
 	private int addNum(String[] integers) throws Exception {
 		int sum = 0;
 
 		for (int i = 0; i < integers.length; i++) {
 
-			if (Integer.parseInt(integers[i]) < 100) {
+			if (1000 > Integer.parseInt(integers[i])) {
 				sum = sum + Integer.parseInt(integers[i]);
 			}
 		}
 		return sum;
 	}
 
-	private String[] getDelimiterSeperatedNumbers(String input) {
-		Matcher matcher = Pattern.compile("//(.)\n(.*)").matcher(input);
+	private int anyLengthDelimiter(String input) {
+		String brack = input.substring(2, 3);
+		int sum = 0;
 
-		if (matcher.matches()) {
+		if (brack.contains("[")) {
+			int lastIndex = input.indexOf("]");
+			String delimiter = input.substring(2, lastIndex);
 
-			String delimiter = matcher.group(1);
-			String toSplit = matcher.group(2);
+			int nIndex = input.indexOf("\n");
+			String numString = input.substring(nIndex + 1, input.length());
 
-			return toSplit.split(delimiter);
+			System.out.println(numString);
+
+			for (int i = 0; i < numString.length();) {
+
+				int n = Integer.parseInt(numString.charAt(i) + "");
+
+				sum = sum + n;
+				i = i + delimiter.length();
+
+			}
 
 		}
-		throw new RuntimeException("Wrong Custom Delimeter Format");
-	}
 
-	public static int GetCalledCount() {
-		return count;
+		System.out.println(sum);
+		return sum;
+
 	}
 }

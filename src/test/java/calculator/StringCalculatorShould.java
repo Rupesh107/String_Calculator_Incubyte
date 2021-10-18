@@ -51,4 +51,9 @@ class StringCalculatorShould {
 
 		assertEquals(7, stringCalculator.add("1003,7"));
 	}
+	
+	@Test
+	void string_with_any_length_delimiter_numbers_should_return_number_as_sum() throws Exception {
+		assertEquals(6, stringCalculator.add("//[***]\n1***2***3"));
+	}
 }
