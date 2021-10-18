@@ -20,8 +20,16 @@ class StringCalculator {
 			String[] num = getDelimiterSeperatedNumbers(input);
 			return addNum(num);
 		} else {
-			return addNum(numbers);
+
+			for (int i = 0; i < input.length(); i++)
+				if (input.charAt(i) < 0) {
+					throw new RuntimeException("negatives not allowed " + input.charAt(i));
+
+				} else {
+					return addNum(numbers);
+				}
 		}
+		return addNum(numbers);
 	}
 
 	private int addNum(String[] integers) throws Exception {
