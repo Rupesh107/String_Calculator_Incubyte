@@ -42,7 +42,10 @@ class StringCalculator {
 		int sum = 0;
 
 		for (int i = 0; i < integers.length; i++) {
-			sum = sum + Integer.parseInt(integers[i]);
+
+			if (Integer.parseInt(integers[i]) < 100) {
+				sum = sum + Integer.parseInt(integers[i]);
+			}
 		}
 		return sum;
 	}
